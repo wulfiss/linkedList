@@ -8,10 +8,10 @@ const LinkedList = () => {
         list.value = value;
       }else{
         let tmp = list;
-        while(tmp.next != null){
-          tmp = tmp.next;
+        while(tmp.nextNode != null){
+          tmp = tmp.nextNode;
         }
-        tmp.next = Node(value);
+        tmp.nextNode = Node(value);
       }
     };
 
