@@ -35,9 +35,18 @@ const LinkedList = () => {
 
     const head = () =>{
       if(!list){
-        return null;
+        return "List does not exist";
       }
-      return `The Head node value = ${list.value}`;
+      return `The value of the headNode is ${list.value}`;
+    }
+
+    const tail = () =>{
+      if(!list) return "List does not exist";
+      let temp = list;
+      while(temp.nextNode !== null){
+        temp = temp.nextNode
+      }
+      return `The value of the tailNode is ${temp.value}`
     }
 
     const getList = () => list;
@@ -47,7 +56,8 @@ const LinkedList = () => {
       prepend,
       getList,
       size,
-      head
+      head, 
+      tail
     };
   };
 
