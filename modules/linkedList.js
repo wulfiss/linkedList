@@ -49,6 +49,21 @@ const LinkedList = () => {
       return `The value of the tailNode is ${temp.value}`
     }
 
+    const at = (index) =>{
+      if(!list) return "List does not exist";
+      let temp = list;
+      let i = 0
+      while(i < index && temp != null){
+        temp = temp.nextNode
+        i += 1;
+      }
+      if(!temp){
+        let length = size();
+        return `The index ${index} is greater than the length of the list, the length of it is ${length}`;
+      }
+      return `The value at index ${index} is ${temp.value}`;
+    }
+
     const getList = () => list;
 
     return {
@@ -57,7 +72,8 @@ const LinkedList = () => {
       getList,
       size,
       head, 
-      tail
+      tail,
+      at
     };
   };
 
