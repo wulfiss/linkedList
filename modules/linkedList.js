@@ -123,7 +123,7 @@ const LinkedList = () => {
     const insertAt = (value, index) => {
 
       if(!list) return "List does not exist";
-      
+
       let length = Number(size().slice(-1)); //extract the length for size text
 
       if(index === 0){
@@ -145,6 +145,24 @@ const LinkedList = () => {
       prev.nextNode = temp;
     }
 
+    const removeAt = (index) => {
+      let length = Number(size().slice(-1)); //extract the length for size text
+      if(index > length) return "The index is greater than the list's length";
+      if(!list) return "List does not exist";
+      if(index === length) return pop();
+
+      let current = list;
+      let prev = null;
+      let i = 0;
+      while(i < index){
+        i += 1;
+        prev = current;
+        current = current.nextNode;
+      }
+      current = current.nextNode;
+      prev.nextNode = current;
+    }
+
     const getList = () => list;
 
     return {
@@ -159,7 +177,8 @@ const LinkedList = () => {
       contains,
       find,
       toString,
-      insertAt
+      insertAt,
+      removeAt
     };
   };
 
