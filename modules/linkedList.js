@@ -15,9 +15,20 @@ const LinkedList = () => {
       }
     };
 
+    const prepend = (value) => {
+      if(!list.value){
+        list.value = value;
+      }else{
+        list = Node(value, list)
+      }
+    }
+
+    const getList = () => list;
+
     return {
       append,
-      list
+      prepend,
+      getList
     };
   };
 
