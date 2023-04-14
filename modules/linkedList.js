@@ -90,6 +90,24 @@ const LinkedList = () => {
       if(i === true) {return true};
     }
 
+    const find = (value) => {
+      if(!list) return "List does not exist";
+      let temp = list;
+      let index = 0;
+      let i = 0;
+      while(i != 1 && temp != null){
+        index += 1;
+        if(temp.value === value){
+          i = 1;
+        }
+        temp = temp.nextNode
+        
+      }
+      if(i === 1){
+        return `The Value ${value} is at index ${index - 1} of the list`;
+      }
+      return `The Value ${value} do not exist in the list`;
+    }
 
     const getList = () => list;
 
@@ -102,7 +120,8 @@ const LinkedList = () => {
       tail,
       at,
       pop,
-      contains
+      contains,
+      find
     };
   };
 
