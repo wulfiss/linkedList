@@ -68,12 +68,28 @@ const LinkedList = () => {
       if(!list) return "List does not exist";
       let current = list;
       let prev = null;
-      while(temp.nextNode !== null){
-        prev = temp;
-        current = temp.nextNode;
+      while(current.nextNode !== null){
+        prev = current;
+        current = current.nextNode;
       }
       prev.nextNode = null;
     }
+
+    const contains = (value) => {
+      if(!list) return "List does not exist";
+      let temp = list;
+      let i = false;
+      while(temp !== null){
+        if(temp.value === value){
+          i = true;
+        }
+        temp = temp.nextNode;
+      }
+
+      if(i === false){return false};
+      if(i === true) {return true};
+    }
+
 
     const getList = () => list;
 
@@ -85,7 +101,8 @@ const LinkedList = () => {
       head, 
       tail,
       at,
-      pop
+      pop,
+      contains
     };
   };
 
