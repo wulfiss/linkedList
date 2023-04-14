@@ -58,8 +58,8 @@ const LinkedList = () => {
         i += 1;
       }
       if(!temp){
-        let length = size();
-        return `The index ${index} is greater than the length of the list, the length of it is ${length}`;
+        let length = size().slice(-1);
+        return `The index ${index} is greater than the length of the list, the length of the list is ${length}`;
       }
       return `The value at index ${index} is ${temp.value}`;
     }
@@ -120,6 +120,31 @@ const LinkedList = () => {
       return stringList + 'null ';
     }
 
+    const insertAt = (value, index) => {
+
+      if(!list) return "List does not exist";
+      
+      let length = Number(size().slice(-1)); //extract the length for size text
+
+      if(index === 0){
+        return prepend(value);
+      } else if(index >= length){
+        return append(value);
+      }
+
+      let current = list;
+      let prev = null;
+      let i = 0;
+      while(i < index){
+        i += 1;
+        prev = current;
+        current = current.nextNode;
+      }
+
+      let temp = Node(value, current);
+      prev.nextNode = temp;
+    }
+
     const getList = () => list;
 
     return {
@@ -133,7 +158,8 @@ const LinkedList = () => {
       pop,
       contains,
       find,
-      toString
+      toString,
+      insertAt
     };
   };
 
