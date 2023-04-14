@@ -13,7 +13,7 @@ const LinkedList = () => {
         }
         tmp.nextNode = Node(value);
       }
-    };
+    }
 
     const prepend = (value) => {
       if(!list){
@@ -23,7 +23,7 @@ const LinkedList = () => {
       }
     }
 
-    const size = () =>{
+    const size = () => {
       let temp = list;
       let count = 0;
       while(temp != null){
@@ -33,14 +33,14 @@ const LinkedList = () => {
       return `The size of list is ${count}`;
     }
 
-    const head = () =>{
+    const head = () => {
       if(!list){
         return "List does not exist";
       }
       return `The value of the headNode is ${list.value}`;
     }
 
-    const tail = () =>{
+    const tail = () => {
       if(!list) return "List does not exist";
       let temp = list;
       while(temp.nextNode !== null){
@@ -49,7 +49,7 @@ const LinkedList = () => {
       return `The value of the tailNode is ${temp.value}`
     }
 
-    const at = (index) =>{
+    const at = (index) => {
       if(!list) return "List does not exist";
       let temp = list;
       let i = 0
@@ -64,6 +64,17 @@ const LinkedList = () => {
       return `The value at index ${index} is ${temp.value}`;
     }
 
+    const pop = () => {
+      if(!list) return "List does not exist";
+      let current = list;
+      let prev = null;
+      while(temp.nextNode !== null){
+        prev = temp;
+        current = temp.nextNode;
+      }
+      prev.nextNode = null;
+    }
+
     const getList = () => list;
 
     return {
@@ -73,7 +84,8 @@ const LinkedList = () => {
       size,
       head, 
       tail,
-      at
+      at,
+      pop
     };
   };
 
