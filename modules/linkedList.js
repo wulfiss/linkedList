@@ -1,11 +1,11 @@
 import Node from "./listNode.js";
 
 const LinkedList = () => {
-    let list = Node();
+    let list = null;
   
     const append = (value) => {
-      if(!list.value){
-        list.value = value;
+      if(!list){
+        list = Node(value);
       }else{
         let tmp = list;
         while(tmp.nextNode != null){
@@ -16,8 +16,8 @@ const LinkedList = () => {
     };
 
     const prepend = (value) => {
-      if(!list.value){
-        list.value = value;
+      if(!list){
+        list = Node(value);
       }else{
         list = Node(value, list)
       }
@@ -30,7 +30,14 @@ const LinkedList = () => {
         count += 1;
         temp = temp.nextNode;
       }
-      return count;
+      return `The size of list is ${count}`;
+    }
+
+    const head = () =>{
+      if(!list){
+        return null;
+      }
+      return `The Head node value = ${list.value}`;
     }
 
     const getList = () => list;
@@ -39,7 +46,8 @@ const LinkedList = () => {
       append,
       prepend,
       getList,
-      size
+      size,
+      head
     };
   };
 
