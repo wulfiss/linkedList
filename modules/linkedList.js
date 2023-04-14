@@ -23,12 +23,23 @@ const LinkedList = () => {
       }
     }
 
+    const size = () =>{
+      let temp = list;
+      let count = 0;
+      while(temp != null){
+        count += 1;
+        temp = temp.nextNode;
+      }
+      return count;
+    }
+
     const getList = () => list;
 
     return {
       append,
       prepend,
-      getList
+      getList,
+      size
     };
   };
 
