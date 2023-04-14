@@ -101,12 +101,23 @@ const LinkedList = () => {
           i = 1;
         }
         temp = temp.nextNode
-        
       }
       if(i === 1){
         return `The Value ${value} is at index ${index - 1} of the list`;
       }
       return `The Value ${value} do not exist in the list`;
+    }
+
+    const toString = () => {
+      if(!list) return "List does not exist";
+      let temp = list;
+      let stringList = '';
+      while(temp != null){
+        stringList += `( ${temp.value} ) --> `;
+        temp = temp.nextNode
+      }
+
+      return stringList + 'null ';
     }
 
     const getList = () => list;
@@ -121,7 +132,8 @@ const LinkedList = () => {
       at,
       pop,
       contains,
-      find
+      find,
+      toString
     };
   };
 
